@@ -1,0 +1,24 @@
+
+
+
+List<Widget> desktop(double width) {
+    return <Widget>[];
+  }
+
+  List<Widget> mobile(double width) {
+    return <Widget>[];
+  }
+
+return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth > 600) {
+          return Row(
+            children: desktop(constraints.biggest.width / 2),
+          );
+        } else {
+          return Column(
+            children: mobile(constraints.biggest.width),
+          );
+        }
+      },
+    );
