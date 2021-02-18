@@ -18,50 +18,10 @@ class _HomeState extends State<Home> {
     var ourserviceh = MediaQuery.of(context).size.width / 4;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: 10.0),
-          child: Image.asset(
-            'assets/Image/Logo.png',
-            fit: BoxFit.fitHeight,
-            height: 60,
-            width: 160,
-            alignment: Alignment.center,
-          ),
-        ),
+      appBar: BaseAppBar(
+        appBar: AppBar(),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Image.asset('assets/Image/Logo.png'),
-              decoration: BoxDecoration(
-                color: Colors.white,
-              ),
-            ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {
-                Navigator.pushNamed(context, '/');
-              },
-            ),
-            ListTile(
-              title: Text('Contact Us'),
-              onTap: () {
-                Navigator.pushNamed(context, '/Contact');
-              },
-            ),
-            ListTile(
-              title: Text('About Us'),
-              onTap: () {
-                Navigator.pushNamed(context, '/About');
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: BaseDrawer(),
       body: SingleChildScrollView(
           child: Column(
         children: [

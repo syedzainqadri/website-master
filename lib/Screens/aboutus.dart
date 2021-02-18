@@ -465,7 +465,7 @@ class About extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white10),
+      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0.0),
       body: Padding(
           padding: EdgeInsets.fromLTRB(30, 40, 30, 0), child: mediaQueryFun()),
     );

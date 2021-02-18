@@ -18,6 +18,7 @@ class ServiceBox extends StatelessWidget {
   ServiceBox({
     @required this.image,
     @required this.text,
+    @required this.ontap,
     Key key,
     @required this.ourserviceh,
   }) : super(key: key);
@@ -25,29 +26,108 @@ class ServiceBox extends StatelessWidget {
   final double ourserviceh;
   Widget image;
   String text;
+  Function ontap;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2.0,
-      color: Colors.white,
-      shadowColor: Colors.black,
-      child: Column(
-        children: [
-          Container(
-            height: ourserviceh,
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: image,
+    return InkWell(
+      onTap: ontap,
+      child: Card(
+        elevation: 2.0,
+        color: Colors.white,
+        shadowColor: Colors.black,
+        child: Column(
+          children: [
+            Container(
+              height: ourserviceh,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: image,
+              ),
+            ),
+            kSpaceH,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                text,
+                style: kHeading2,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+//AppBar
+
+class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final Text title;
+  final AppBar appBar;
+  final List<Widget> widgets;
+
+  const BaseAppBar({Key key, this.title, this.appBar, this.widgets})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      centerTitle: true,
+      title: Padding(
+        padding: const EdgeInsets.only(bottom: 10.0),
+        child: Image.asset(
+          'assets/Image/Logo.png',
+          fit: BoxFit.fitHeight,
+          height: 60,
+          width: 160,
+          alignment: Alignment.center,
+        ),
+      ),
+      actions: widgets,
+    );
+  }
+
+  @override
+  Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height);
+}
+
+//Darwer
+
+class BaseDrawer extends StatelessWidget {
+  const BaseDrawer({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Image.asset('assets/Image/Logo.png'),
+            decoration: BoxDecoration(
+              color: Colors.white,
             ),
           ),
-          kSpaceH,
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              text,
-              style: kHeading2,
-            ),
+          ListTile(
+            title: Text('Home'),
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+            },
+          ),
+          ListTile(
+            title: Text('Contact Us'),
+            onTap: () {
+              Navigator.pushNamed(context, '/Contact');
+            },
+          ),
+          ListTile(
+            title: Text('About Us'),
+            onTap: () {
+              Navigator.pushNamed(context, '/About');
+            },
           ),
         ],
       ),

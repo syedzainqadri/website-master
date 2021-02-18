@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/utils/Constants.dart';
 
 class OurSlider extends StatelessWidget {
   const OurSlider({
@@ -13,30 +14,27 @@ class OurSlider extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: [
+          kSpaceW,
           Card(
             child: Image.asset('assets/Image/BlueEast.png'),
           ),
+          kSpaceW,
           Card(
             child: Image.asset('assets/Image/pitac.png'),
           ),
+          kSpaceW,
           Card(
-            child: Image.asset('assets/Image/cc.png'),
+            child: Image.asset('assets/Image/contegis.png'),
           ),
+          kSpaceW,
           Card(
-            child: Image.asset('assets/Image/cc.png'),
+            child: Image.asset('assets/Image/Navttc.png'),
           ),
+          kSpaceW,
           Card(
-            child: Image.asset('assets/Image/cc.png'),
+            child: Image.asset('assets/Image/aws.png'),
           ),
-          Card(
-            child: Image.asset('assets/Image/cc.png'),
-          ),
-          Card(
-            child: Image.asset('assets/Image/cc.png'),
-          ),
-          Card(
-            child: Image.asset('assets/Image/cc.png'),
-          ),
+          kSpaceW,
         ],
       ),
     );

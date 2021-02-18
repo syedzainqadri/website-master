@@ -17,14 +17,23 @@ class OurServices extends StatelessWidget {
       runSpacing: 20.0,
       children: [
         ServiceBox(
+            ontap: () {
+              Navigator.pushNamed(context, '/BootCamps');
+            },
             text: 'Trainings & BootCamps',
             image: Image.asset('assets/Image/training.png'),
             ourserviceh: ourserviceh),
         ServiceBox(
+            ontap: () {
+              Navigator.pushNamed(context, '/MobileAppDevelopment');
+            },
             text: 'Mobile App Development',
             image: Image.asset('assets/Image/mobiledev.png'),
             ourserviceh: ourserviceh),
         ServiceBox(
+            ontap: () {
+              Navigator.pushNamed(context, '/CloudComputing');
+            },
             text: 'Cloud Consultancy',
             image: Image.asset('assets/Image/cc.png'),
             ourserviceh: ourserviceh),
